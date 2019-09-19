@@ -1,4 +1,5 @@
 connection: "thelook"
+#this is a comment yeah
 
 # include all the views
 include: "*.view"
