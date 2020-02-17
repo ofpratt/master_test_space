@@ -39,6 +39,16 @@ explore: order_items {
     sql_on: ${order_items.order_id} = ${orders.id} ;;
     relationship: many_to_one
   }
+  join: NDT_test1 {
+    type: left_outer
+    sql_on: ${NDT_test1.id} = ${orders.id} ;;
+    relationship: one_to_one
+  }
+  join: NDT_test2 {
+    type: left_outer
+    sql_on: ${NDT_test1.id} = ${NDT_test2.id} ;;
+    relationship: one_to_one
+  }
 
   join: inventory_items {
     type: left_outer
