@@ -1,5 +1,7 @@
 view: orders {
-  sql_table_name: demo_db.orders ;;
+  sql_table_name: looker_test.orders ;;
+  drill_fields: [id]
+  suggestions: no
 
   dimension: id {
     primary_key: yes
@@ -21,6 +23,11 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: order_amount {
+    type: number
+    sql: ${TABLE}.order_amount ;;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
@@ -32,13 +39,8 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
-measure: percent_of_total {
-  type: percent_of_total
-  sql: ${count} ;;
-}
   measure: count {
     type: count
-    drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
-    html: {{ percent_of_total._rendered_value }} ;;
+    drill_fields: [id, users.id, users.name, order_items.count]
   }
 }

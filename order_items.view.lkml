@@ -11,6 +11,7 @@ view: order_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
+    order_by_field: running_total
   }
 
   dimension: order_id {
@@ -36,6 +37,11 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
+  }
+
+  measure: running_total{
+    type: running_total
+    sql: ${count} ;;
   }
 
   measure: count {
