@@ -46,10 +46,9 @@ explore: order_items {
   }
   join: NDT_test2 {
     type: left_outer
-    sql_on: ${NDT_test1.id} = ${NDT_test2.id} ;;
+    sql_on: ${orders.id} = ${NDT_test2.id} ;;
     relationship: one_to_one
   }
-
   join: inventory_items {
     type: left_outer
     sql_on: ${order_items.inventory_item_id} = ${inventory_items.id} ;;
@@ -74,6 +73,10 @@ explore: orders {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+  }
+  join: derived_table {
+    relationship: one_to_one
+    sql_on: ${derived_table.id} = orders.${orders.id} ;;
   }
 }
 

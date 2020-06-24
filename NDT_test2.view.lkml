@@ -2,9 +2,10 @@
 view: NDT_test2 {
   derived_table: {
     explore_source: order_items {
-      bind_all_filters: yes
+       bind_all_filters: yes
       column: count {}
       column: id { field: orders.id }
+      column: created_date { field: orders.created_date}
       column: status { field: orders.status }
       column: brand { field: products.category }
     }

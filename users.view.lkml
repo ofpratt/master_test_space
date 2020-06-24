@@ -67,9 +67,14 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
-  measure: count {
+  measure: y_count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: y_sum {
+    type: sum
+    sql: ${id} ;;
   }
 
   # ----- Sets of fields for drilling ------

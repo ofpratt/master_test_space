@@ -32,8 +32,13 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
-  measure: count {
+  measure: x_count {
     type: count
     drill_fields: [id, users.first_name, users.id, users.last_name, order_items.count]
+  }
+
+  measure: x_sum {
+    type: sum
+    sql: ${user_id} ;;
   }
 }
