@@ -11,7 +11,7 @@ view: order_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
-    order_by_field: running_total
+    #order_by_field: running_total
   }
 
   dimension: order_id {
