@@ -17,4 +17,8 @@ view: NDT_test2 {
   }
   dimension: status {}
   dimension: brand {}
+  dimension: brantus {
+    type: string
+    sql: ${status}||${brand} ;;
+  }
 }
