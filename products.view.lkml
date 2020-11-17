@@ -15,6 +15,33 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    html:
+    {% if value == 'Intimates' %}
+    <i>cis-Intimaterooni&nbsp</i>
+    {% elsif value == 'Fashion Hoodies & Sweatshirts' %}
+    <i>sweaty shirts and hoodies&nbsp</i>
+    {% else %}
+    {{rendered_value}}
+    {% endif %};;
+  }
+
+  dimension: logo {
+    type: string
+    sql: ${category} ;;
+    html:
+        {% if category._value == 'Intimates'%}
+        <img src = "https://images.madeiramadeira.com.br/banner/images/54545382-01-guardaroupa-160x160.png">
+        {% elsif category._value == 'Accessories'%}
+        <img src = "https://images.madeiramadeira.com.br/banner/images/91545942-04-cama-160x160.png">
+        {% elsif category._value == 'Active'%}
+        <img src = "https://images.madeiramadeira.com.br/banner/images/50546689-08-eletro-160x160.png">
+        {% elsif category._value == 'Blazers & Jackets'%}
+        <img src = "https://images.madeiramadeira.com.br/banner/images/60546822-09-decor-160x160.png">
+        {% elsif category._value == 'Jumpsuits & Rompers'%}
+        <img src = "https://images.madeiramadeira.com.br/banner/images/52546954-10-portas-e-janelas-160x160.png">
+        {% else %}
+        <img src = "https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/336/career/281/images/logo.jpg">
+        {% endif %} ;;
   }
 
   dimension: department {
