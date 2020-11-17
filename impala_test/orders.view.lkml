@@ -9,6 +9,22 @@ view: orders {
     sql: ${TABLE}.id ;;
   }
 
+  parameter: swags {
+    type: string
+    allowed_value: {
+      label: "Less than 500"
+      value: "< 500"
+    }
+    allowed_value: {
+      label: "Less than 10,000"
+      value: "< 10000"
+    }
+    allowed_value: {
+      label: "All Results"
+      value: "> 0"
+    }
+  }
+
   dimension_group: created {
     type: time
     timeframes: [

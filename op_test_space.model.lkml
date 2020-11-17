@@ -91,6 +91,8 @@ explore: user_data {
 
 explore: users {}
 
+explore: test_liquid {}
+
 explore: users_nn {}
 
 explore: zozo_table_20190507 {}
