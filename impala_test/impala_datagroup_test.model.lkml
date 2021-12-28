@@ -8,6 +8,8 @@ datagroup: test_datagroup_OP_impala {
   sql_trigger: select hour(current_timestamp()) ;;
 }
 
+#################TEST
+
 explore: order_items {
   join: orders {
     relationship: many_to_one
